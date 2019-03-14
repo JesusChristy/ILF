@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+		<title>iLF</title>
+		<link rel="stylesheet" href="css/main.css" type='text/css'>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="shortcut icon" type="image/png" href="images/ILF.png"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="js/Main.js"></script>
+    </head>
+
+	<body>
+        <main class="View_Wrapper" id="Dashboard_Wrapper">
+		    <header class="Container_Head">
+                <div class="Title_Head">
+                    <p>Tableau de bord iLF</p>
+                </div>
+                <div id="Search_Container">
+                    <div id="Search_Head">
+                        <p>Rechercher une commande</p>
+                        <input type="text" id="Search_Input" maxlength="8" placeholder="Numéro LTA">
+                        <button id="Search_Button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div id="Create_Head">
+                        <p>Créer une commande</p>
+                        <button id="Create_Order">Nouvelle commande</button>
+                    </div>
+                </div>
+            </header>
+            <div class="Container_Main">
+                <div id="Current_Orders">
+                    <div class="Title_Current">
+                        <p>Commande en cours (0)</p>
+                    </div>
+                    <table>
+                        <tr>
+                          <th>Numéro LTA</th>
+                          <th>Client</th>
+                          <th>Fournisseur</th>
+                          <th>Passée le</th>
+                          <th>Livraison prévue le</th>
+                          <th>&Eacute;tape courante</th>
+                          <th>&Eacute;tat</th>
+                          <th>Action</th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Archive_Orders">
+                    <div class="Title_Archive">
+                        <p>Archives</p>
+                    </div>
+                    <table>
+                        <tr>
+                          <th>Numéro LTA</th>
+                          <th>Client</th>
+                          <th>Fournisseur</th>
+                          <th>Passée le</th>
+                          <th>Livraison prévue le</th>
+                          <th>Livraison effective</th>
+                          <th>Problèmes rencontrés</th>
+                          <th>Action</th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Stats_Orders">
+                    <div class="Title_Stats">
+                        <p>Statistiques</p>
+                    </div>
+                    <div class="Left_Stat">
+                        <p>Nombre de commandes des 3 derniers mois</p>
+                        <table></table>
+                    </div>
+                    <div class="Right_Stat">
+                        <p>Pourcentage de commandes ayant eu un problème des 3 derniers mois</p>
+                        <table></table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <main class="View_Wrapper" id="Orders_Wrapper">
+            <header class="Container_Head">
+                <div class="Title_History">
+                    <button class="Return_Button" data-view="Orders_Wrapper">Acceuil</button>
+                </div>
+                <div class="Content_History"></div>
+            </header>
+            <div class="Container_Main">
+                <div class="Title_Orders"></div>
+                <div id="History_Orders">
+                    <table>
+                        <tr>
+                            <th>Numéro LTA</th>
+                            <th>Passée le</th>
+                            <th>Livraison prévue le</th>
+                            <th>&Eacute;tape courante</th>
+                            <th>&Eacute;tat</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <main class="View_Wrapper" id="Customers_Wrapper">
+            <button class="Return_Button" data-view="Customers_Wrapper">Acceuil</button>
+            <header class="Container_Head">
+                <div class="Title_Head">
+                    <p>Client</p>
+                </div>
+                <div class="Content_Customer">
+                    <div class="Left_Content"></div>
+                    <div class="Right_Content"></div>
+                </div>
+            </header>
+            <div class="Container_Main">
+                <div id="Current_Customers">
+                    <div class="Title_Current">
+                        <p>Commande en cours pour le client</p>
+                    </div>
+                    <table>
+                        <tr>
+                          <th>Numéro LTA</th>
+                          <th>Fournisseur</th>
+                          <th>Passée le</th>
+                          <th>Livraison prévue le</th>
+                          <th>&Eacute;tape courante</th>
+                          <th>&Eacute;tat</th>
+                          <th>Action</th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Archive_Customers">
+                    <div class="Title_Archive">
+                        <p>Archives des commandes terminées du client</p>
+                    </div>
+                    <table>
+                        <tr>
+                          <th>Numéro LTA</th>
+                          <th>Fournisseur</th>
+                          <th>Passée le</th>
+                          <th>Livraison prévue le</th>
+                          <th>Livraison effective</th>
+                          <th>Problèmes rencontrés</th>
+                          <th>Action</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <main class="View_Wrapper" id="Providers_Wrapper">
+            <button class="Return_Button" data-view="Providers_Wrapper">Acceuil</button>
+            <header class="Container_Head">
+                <div class="Title_Head">
+                    <p>Fournisseur</p>
+                </div>
+                <div class="Content_Provider">
+                    <div class="Left_Content"></div>
+                    <div class="Right_Content"></div>
+                </div>
+            </header>
+            <div class="Container_Main">
+                <div id="Current_Providers">
+                    <div class="Title_Current">
+                        <p>Commande en cours pour le fournisseur</p>
+                    </div>
+                    <table>
+                        <tr>
+                          <th>Numéro LTA</th>
+                          <th>Client</th>
+                          <th>Passée le</th>
+                          <th>Livraison prévue le</th>
+                          <th>&Eacute;tape courante</th>
+                          <th>&Eacute;tat</th>
+                          <th>Action</th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Archive_Providers">
+                    <div class="Title_Archive">
+                        <p>Archives des commandes terminées du fournisseur</p>
+                    </div>
+                    <table>
+                        <tr>
+                          <th>Numéro LTA</th>
+                          <th>Client</th>
+                          <th>Passée le</th>
+                          <th>Livraison prévue le</th>
+                          <th>Livraison effective</th>
+                          <th>Problèmes rencontrés</th>
+                          <th>Action</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <main class="View_Wrapper" id="Create_Wrapper">
+            <button class="Return_Button" data-view="Create_Wrapper">Acceuil</button>
+            <header class="Container_Head">
+                <div class="Title_Head">
+                    <p>Création de commande</p>
+                </div>
+            </header>
+            <div class="Content_Create">
+                <form>
+                    <div class="Form-Group">
+                        <p>Nom du client :</p>
+                        <select id="Customers_Create" class="Check_Value"></select>
+                    </div>
+                    <div class="Form-Group">
+                        <p>Nom du fournisseur :</p>
+                        <select id="Providers_Create" class="Check_Value"></select>
+                    </div>
+                    <div class="Form-Group">
+                        <p class="Center-Items">Description de commande</p>
+                        <textarea id="TextArea_Create" class="Check_Value" placeholder="Type de poisson et quantité.."></textarea>
+                    </div>
+                    <div class="Form-Group Date">
+                        <p>Date de livraison prévue</p>
+                    </div>
+                    <button type="button" id="Valid_Create">Valider la création de la commande</button>
+                </form>
+            </div>
+        </main>
+        <div id="Modal_Shadow"></div>
+        <main id="Modal_Wrapper">
+            <div class="Modal_Title">
+                <h4>Voulez-vous vraiment supprimer cette commande ?</h4>
+            </div>
+            <div class="Modal_Main">
+                <div class="Left_Content">
+                    <button type="button" id="Confirm_Delete" data-target="">Valider</button>
+                </div>
+                <div class="Right_Content" style="margin-top:0!important;">
+                    <button type="button" id="Cancel_Delete">Annuler</button>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+	</body>
+</html>

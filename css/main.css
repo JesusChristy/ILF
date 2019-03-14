@@ -1,0 +1,406 @@
+html, body {
+    width: 100%!important;
+    height: 100%!important;
+    min-width: 320px!important;
+    overflow-x: hidden!important;
+    margin: 0px!important;
+}
+
+* {
+    font-family: 'Roboto';
+}
+
+.fas, .far {
+    font-size: 17px;
+}
+
+button {
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.View_Wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 1750px!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* RESPONSIVE */
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    td, th {font-size: 13px!important;}
+    .Current_Orders_Display {margin-bottom: 7.5px;}
+    .Left_Content, .Right_Content {width:100%!important;float:left!important;}
+    .Container_Main {margin-top:20px!important;}
+}
+@media screen and (max-width: 767px) {
+    td, th {font-size: 13px!important;}
+    .Current_Orders_Display {margin-bottom: 7.5px;}
+    .Left_Stat, .Right_Stat {width:75%!important;float:left!important;margin-bottom:30px;margin-left:40px!important;}
+    table {display:block;overflow-x:auto;white-space:nowrap;}
+    #History_Orders table {width: 100%!important;}
+    .Left_Content, .Right_Content {width:100%!important;float:left!important;}
+    .Container_Main {margin-top:20px!important;}
+}
+@media screen and (max-width: 590px) {
+    .View_Wrapper p, .Title_Current, .Title_Archive {font-size: 14px!important;}
+    #Current_Customers, #Current_Providers, #Archive_Customers, #Archive_Providers {width:95%!important;}
+    .Left_Stat, .Right_Stat {width:90%!important;float:left!important;margin-bottom:30px;margin-left:0px!important;}
+    .Left_Content, .Right_Content {width:100%!important;float:left!important;}
+    .Container_Main {margin-top:20px!important;}
+    #Search_Container {width: 90%!important;}
+    #Search_Head p, #Create_Head p {display: none;}
+    #Search_Head > *, #Create_Head > * {margin-left: 0px!important;}
+}
+
+@media screen and (max-width: 500px) {
+    .Return_Button {top:10px!important;}
+    .Title_Archive {font-size:17px!important;}
+}
+
+/*   HEAD    */
+
+.Container_Head {
+    width: 100%;
+    float: left;
+}
+
+.Title_Head, .Title_History {
+    width: 100%;
+    height: 33.33%;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.Title_Head p, .Title_History p {
+    font-size: 24px!important;
+    text-align: center;
+}
+
+#Search_Container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Search_Head {
+    width: 100%;
+    height: 33.33%;
+    float: left;
+}
+
+#Search_Head p {
+    font-size: 16px;
+    font-weight: 600;
+    float: left;
+}
+
+#Search_Head input {
+    height: 22px!important;
+    float: left;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+#Search_Head button {
+    height: 28px!important;
+    float: left;
+    margin-top: 15px;
+}
+
+#Create_Head {
+    width: 100%;
+    height: 33.33%;
+    float: left;
+}
+
+#Create_Head p {
+    font-size: 16px;
+    float: left;
+    font-weight: 600;
+}
+
+#Create_Head button {
+    float: left;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+/*   MAIN    */
+
+.Container_Main {
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#Current_Orders, #Archive_Orders, #Stats_Orders {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Left_Stat, .Right_Stat {
+    width: 40%; 
+    float: left;
+    font-weight: 500;
+}
+
+.Right_Stat {
+    margin-left: 100px;
+}
+
+.Title_Current, .Title_Archive, .Title_Stats {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    font-size: 16px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 5px;
+}
+
+td.Customer_Order, td.Provider_Order {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+th {
+    font-size: 14px;
+}
+
+.Current_Orders_Display, .Current_Orders_Delete {
+    border-collapse: collapse;
+}
+
+.Current_Orders_Delete {
+    margin-left: 7.5px;
+}
+
+#Dashboard_Wrapper, #Orders_Wrapper, #Customers_Wrapper, #Providers_Wrapper, #Create_Wrapper, #Modal_Wrapper, #Modal_Shadow {
+    display: none;
+    opacity: 0.0;
+}
+
+.Content_History, .Content_Create, .Content_Customer, .Content_Provider {
+    display: block;
+    width: 80%;
+    height: 50%;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Content_History button {
+    margin-left: 10px;
+}
+
+.Content_History p {
+    font-size: 16px;    
+    font-weight: 400;
+}
+
+.Title_Orders {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+} 
+
+.Title_Orders p {
+    font-size: 18px;
+    float: left;
+    font-weight: 600;
+} 
+
+#History_Orders,  #Current_Customers, #Archive_Customers,  #Current_Providers, #Archive_Providers {
+    margin-top: 75px;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#History_Orders table {
+    width: 75%;
+    max-width: 700px;
+}
+
+.Return_Button {
+    position: relative;
+    top: 50px;
+    left: 10%;
+}
+
+.Left_Content {
+    width: 40%;
+    float: left;
+}
+
+.Right_Content {
+    width: 47.5%;
+    float: right;
+    margin-top: 2.25%;
+}
+
+.Form-Group {
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-bottom: 15px;
+}
+
+.Date {
+    margin-bottom: 60px!important;
+}
+
+.Form-Group p {
+    float: left;
+}
+
+#TextArea_Create {
+    width: 500px;
+    height: 150px!important;
+}
+
+#Customers_Create, #Providers_Create, #TextArea_Create, #Date_Create {
+    float: left;
+    margin-left: 25px;
+    margin-top: 15px;
+    min-width: 100px;
+    height: 20px;
+}
+
+#Valid_Create {
+    display: block;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Center-Items {
+    padding-top: 60px;
+}
+
+textarea::-webkit-input-placeholder {
+    padding-top: 60px;  
+    padding-left: 5px;
+}
+  
+textarea:-moz-placeholder { /* Firefox 18- */
+    padding-top: 60px;  
+    padding-left: 5px;
+}
+
+textarea::-moz-placeholder {  /* Firefox 19+ */
+    padding-top: 60px;  
+    padding-left: 5px;
+}
+
+textarea:-ms-input-placeholder {
+    padding-top: 60px;  
+    padding-left: 5px;
+}
+
+textarea::placeholder {
+  padding-top: 60px;  
+  padding-left: 5px;
+}
+
+#Modal_Shadow {
+    position: absolute;
+    width: 100%!important;
+    height: 100%!important;
+    background-color: rgb(0, 0, 0, 0.50);
+    opacity: 0.0;
+    top: 0;
+    z-index: 999;
+}
+
+#Modal_Wrapper {
+    position: absolute;
+    width: 30%;
+    max-width: 30%;
+    height: 125px;
+    background-color: white;
+    opacity: 0.0;
+    margin-top: 20%;
+    top: 0;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    z-index: 9999;
+    border-radius: 5px;
+}
+
+.Modal_Title {
+    width: 95%;
+    height: 75px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Modal_Title h4 {
+    width: 100%!important;
+    text-align: center;
+    color: black;
+    float: left;
+}
+
+.Modal_Main {
+    width: 50%;
+    height: 125px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Modal_Main button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Notification_Container {
+	position: absolute;
+	min-width: 0px;
+	min-height: 50px;
+	background-color: white;
+	border: 1px solid black;
+	text-align: center;
+	z-index: 9999;
+	top: 90%;
+	left: -25%;
+}
+
+.Notification_Container i {
+	color: green;
+	margin-right: 15px;
+}
+
+.Notification_Container p {
+	font-size: 21px;
+	font-style: bold;
+	color: black;
+	margin: 15px;
+}
+
